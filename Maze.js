@@ -31,6 +31,86 @@ var maze = {
 
   /* search for a path through the maze (basic dfs currently) */
   solveMaze: function(){
+    var nodeQueue = [this.nodes[this.startPos[0]][this.startPos[1]]];
+    var pathFound = false;
+    var currNode;
+    var xLoc;
+    var yLoc
 
+    while(nodeQueue.length > 0 && !pathFound){
+      currNode = nodeQueue.shift();
+      xLoc = currNode.column;
+      yLoc = currNode.row;
+
+      if(xLoc > 0){ // making sure we dont index OOB left
+        if(this.nodes[xLoc-1][yLoc].state == 'finish'){ // checking left node
+          pathFound = true;
+          this.nodes[xLoc-1][yLoc].parent = currNode;
+        }
+      }
+      if(xLoc < this.columns - 1){ // making sure we dont OOB right
+        if(this.nodes[xLoc+1][yLoc].state == 'finish'){ // checking right node
+          pathFound = true;
+          this.nodes[xLoc+1][yLoc].parent = currNode;
+        }
+      }
+      if(yLoc > 0){ // making sure we dont index OOB up
+        if(this.nodes[xLoc][yLoc-1].state == 'finish'){ // checking up node
+          pathFound = true;
+          this.nodes[xLoc][yLoc-1].parent = currNode;
+        }
+      }
+      if(yLoc < this.rows - 1){ // making sure we dont index OOB up
+        if(this.nodes[xLoc][yLoc+1].state == 'finish'){ // checking down node
+          pathFound = true;
+          this.nodes[xLoc][yLoc+1].parent = currNode;
+        }
+      }
+
+      if(xLoc > 0){ // making sure we dont index OOB left
+        if(this.nodes[xLoc-1][yLoc].state == 'empty'){ // checking left node
+          nodeQueue.push(this.nodes[xLoc-1][yLoc]);
+          this.nodes[xLoc-1][yLoc].parent = currNode;
+          this.nodes[xLoc-1][yLoc].state = 'explored';
+        }
+      }
+      if(xLoc < this.columns - 1){ // making sure we dont OOB right
+        if(this.nodes[xLoc+1][yLoc].state == 'empty'){ // checking right node
+          nodeQueue.push(this.nodes[xLoc+1][yLoc]);
+          this.nodes[xLoc+1][yLoc].parent = currNode;
+          this.nodes[xLoc+1][yLoc].state = 'explored';
+        }
+      }
+      if(yLoc > 0){ // making sure we dont index OOB up
+        if(this.nodes[xLoc][yLoc-1].state == 'empty'){ // checking up node
+          nodeQueue.push(this.nodes[xLoc][yLoc-1]);
+          this.nodes[xLoc][yLoc-1].parent = currNode;
+          this.nodes[xLoc][yLoc-1].state = 'explored';
+        }
+      }
+      if(yLoc < this.rows - 1){ // making sure we dont index OOB up
+        if(this.nodes[xLoc][yLoc+1].state == 'empty'){ // checking down node
+          nodeQueue.push(this.nodes[xLoc][yLoc+1]);
+          this.nodes[xLoc][yLoc+1].parent = currNode;
+          this.nodes[xLoc][yLoc+1].state = 'explored';
+        }
+      }
+    }
+
+    if(!pathFound){
+      console.log('error no solution');
+    }
+    else{
+      console.log('maze solved');
+      currNode = this.nodes[this.finPos[0]][this.finPos[1]];
+
+      //loop through all parent nodes from the finish until we reach start
+      while(currNode.parent != null){
+        currNode = currNode.parent;
+        if(currNode.state != 'start'){
+          this.nodes[currNode.column][currNode.row].state = 'solution';
+        }
+      }
+    }
   }
 }

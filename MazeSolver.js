@@ -1,5 +1,5 @@
 /* self explanatory constants */
-const COLUMNS = 20;
+const COLUMNS = 15;
 const ROWS = 15;
 const NODE_WIDTH = 20;
 const NODE_HEIGHT = 20;

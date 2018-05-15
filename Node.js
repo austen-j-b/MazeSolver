@@ -4,6 +4,7 @@ function node(state, column, row){
   this.row = row;
   this.width = NODE_WIDTH;
   this.height = NODE_HEIGHT;
+  this.parent = null;
   /* easy acces to the top left/bottom right of the node (starting at 0,0 of the
   canvas it is placed on) */
   this.topLeft = [(NODE_GAP + (this.column*(this.width + NODE_GAP))),
@@ -33,10 +34,10 @@ function node(state, column, row){
         return '#FF0000'; // red
         break;
       case 'explored':
-        return '#d3f915'; // yellow
+        return '#ffb347'; // yellow
         break;
       case 'solution':
-        return '000000'; // black
+        return '#000000'; // black
         break;
       default:
         return '#FF00FF'; // purple
