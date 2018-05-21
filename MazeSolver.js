@@ -1,6 +1,6 @@
 /* self explanatory constants */
-const COLUMNS = 15;
-const ROWS = 15;
+const COLUMNS = 10;
+const ROWS = 10;
 const NODE_WIDTH = 20;
 const NODE_HEIGHT = 20;
 const NODE_GAP = 3;

@@ -1,13 +1,14 @@
 var myCanvas  = {
-  canvas: document.createElement('canvas'),
+  //canvas: document.createElement('canvas'),
   initCanvas: function(){
+    this.canvas = document.getElementById('mainCanvas'),
     // initiate a basic canvas with exact necessary width and height
     this.canvas.width = (NODE_GAP + (COLUMNS*(NODE_WIDTH + NODE_GAP)));
     this.canvas.height = (NODE_GAP + (ROWS*(NODE_HEIGHT + NODE_GAP)));
     // get canvas context to draw to
     this.context = this.canvas.getContext('2d');
     // add the canvas to our main body
-    document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+    //document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 
     // add event listeners for click/unclick
     window.addEventListener('mousedown', this.mouseDown);

@@ -3,15 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Maze Solver v1</title>
+    <link rel='stylesheet' href='MazeSolver.css'>
   </head>
   <body onload='initAll()'>
     <script src='MazeSolver.js' charset='utf-8'></script>
     <script src='Maze.js' charset='utf-8'></script>
     <script src='Node.js' charset='utf-8'></script>
     <script src='MyCanvas.js' charset='utf-8'></script>
-    
-    <button onclick="maze.solveMaze()">Solve!</button>
-    <button onclick="initAll()">Reset!</button>
 
+    <div class='canvasDiv'>
+      <canvas id='mainCanvas'></canvas>
+    </div>
+
+    <div class='toolsDiv'>
+      <button onclick="maze.solveMaze()">Solve!</button>
+      <button onclick="initAll()">Reset!</button>
+    </div>
   </body>
 </html>
