@@ -1,9 +1,20 @@
+body{
+  font-family:Verdana;
+}
+.light{
+  background: white;
+}
+.dark{
+  background: #434343;
+}
+
 div.canvasDiv{
   float: left;
 }
 div.toolsDiv{
   float: left;
 }
+/* Basic push button */
 .button{
   border-radius: 13px;
   border:1px solid #000000;
@@ -30,6 +41,7 @@ div.toolsDiv{
  color: #FFFFFF;
 }
 
+/* Toggle button */
 /* The switch - the box around the slider */
 .btn-toggle {
   position: relative;
@@ -38,24 +50,22 @@ div.toolsDiv{
   width: 46px;
   height: 18px;
 }
-
 /* Hide default HTML checkbox */
 .btn-toggle input {display:none;}
-
 /* The slider */
-.slider {
+.btn-toggle-slider {
   position: absolute;
   cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #C0C0C0;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 34px;
 }
-
-.slider:before {
+.btn-toggle-slider:before {
   position: absolute;
   content: "";
   height: 16px;
@@ -65,25 +75,35 @@ div.toolsDiv{
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 50%;
 }
-
-input:checked + .slider {
+input:checked + .btn-toggle-slider {
   background-color: #2196F3;
 }
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
+input:checked + .btn-toggle-slider:before {
   transform: translateX(28px);
 }
-
-/* Rounded sliders */
-.slider{
-  border-radius: 34px;
+input:not(:checked) ~ .btn-toggle-textON{
+  display:none;
 }
-
-.slider:before {
-  border-radius: 50%;
+input:checked ~ .btn-toggle-textOFF{
+  display:none;
+}
+input:checked ~ .btn-toggle-textON{
+  font-size: 10px;
+  font-weight: 800;
+  color: white;
+  position: absolute;
+  left: 9px;
+  bottom: 3px;
+  display: inline-block;
+}
+input:not(:checked) ~ .btn-toggle-textOFF{
+  font-size: 10px;
+  font-weight: 800;
+  color: white;
+  position: absolute;
+  left: 20px;
+  bottom: 3px;
+  display: inline-block;
 }

@@ -16,3 +16,12 @@ function refresh(){
   myCanvas.clearCanvas(); // clear canvas to be redrawn
   maze.updateMaze(); // redraw maze with updates
 }
+function lightDark(checkbox){
+  if(checkbox.checked){
+    body.className='dark';
+    console.log('test');
+  }
+  else{
+    body.className='light';
+  }
+}
