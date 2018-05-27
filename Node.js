@@ -25,19 +25,19 @@ function node(state, column, row){
         return '#999999'; // light grey
         break;
       case 'wall':
-        return '#168ff9'; // blue
+        return '#66b7e2'; // blue
         break;
       case 'start':
-        return '#00FF00'; // green
+        return '#58da52'; // green
         break;
       case 'finish':
-        return '#FF0000'; // red
+        return '#dc3d3a'; // red
         break;
       case 'explored':
-        return '#ffb347'; // yellow
+        return '#dda244'; // yellow
         break;
       case 'solution':
-        return '#000000'; // black
+        return '#202020'; // black
         break;
       default:
         return '#FF00FF'; // purple

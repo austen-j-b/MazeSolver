@@ -5,19 +5,24 @@
     <title>Maze Solver v1</title>
     <link rel='stylesheet' href='MazeSolver.css'>
   </head>
-  <body onload='initAll()'>
+  <body onload='initAll()' style='font-family:Verdana;'>
     <script src='MazeSolver.js' charset='utf-8'></script>
     <script src='Maze.js' charset='utf-8'></script>
     <script src='Node.js' charset='utf-8'></script>
     <script src='MyCanvas.js' charset='utf-8'></script>
 
     <div class='canvasDiv'>
-      <canvas id='mainCanvas'></canvas>
+      <canvas id='mainCanvas'></canvas></br>
+      <label class="btn-toggle">
+        <input type="checkbox">
+        <span class="slider"></span>
+    </label> <font size=2> DARK MODE </font>
     </div>
 
     <div class='toolsDiv'>
-      <button onclick="maze.solveMaze()">Solve!</button>
-      <button onclick="initAll()">Reset!</button>
+      <img src='Key.jpg' alt='This should show a key to show which colours mean what.'></br>
+      <button class='btn-round' onclick="maze.solveMaze()">SOLVE!</button></br>
+      <button class='btn-round' onclick="initAll()">RESET!</button>
     </div>
   </body>
 </html>

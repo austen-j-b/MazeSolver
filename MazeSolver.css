@@ -4,3 +4,86 @@ div.canvasDiv{
 div.toolsDiv{
   float: left;
 }
+.button{
+  border-radius: 13px;
+  border:1px solid #000000;
+  padding:7px 45px;
+  background-color:transparent;
+  margin-bottom: 5px;
+}
+.btn-round{
+ display: inline-block;
+ border:1px solid #000000;
+ color: #000000;
+ border-radius: 20px 20px 20px 20px;
+ font-family: Verdana;
+ width: auto;
+ height: auto;
+ font-size: 15px;
+ padding: 6px 38px;
+ background-color: #FFFFFF;
+ margin-bottom: 5px;
+}
+.btn-round:hover, .btn-class:active{
+ border:1px solid #000000;
+ background-color: #505050;
+ color: #FFFFFF;
+}
+
+/* The switch - the box around the slider */
+.btn-toggle {
+  position: relative;
+  display: inline-block;
+  top: 3px;
+  width: 46px;
+  height: 18px;
+}
+
+/* Hide default HTML checkbox */
+.btn-toggle input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 1px;
+  bottom: 1px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(28px);
+}
+
+/* Rounded sliders */
+.slider{
+  border-radius: 34px;
+}
+
+.slider:before {
+  border-radius: 50%;
+}
